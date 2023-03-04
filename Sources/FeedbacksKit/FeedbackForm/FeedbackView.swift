@@ -27,7 +27,7 @@ public struct FeedbackForm: View {
             Section {
                 TextField("Email (optional)", text: $viewModel.email)
                     .keyboardType(.emailAddress)
-                    .autocapitalization(.none) // TODO: add variant for newer iOS version
+                    .autocapitalization(.none)
             } header: {
                 Text("Email")
             }
