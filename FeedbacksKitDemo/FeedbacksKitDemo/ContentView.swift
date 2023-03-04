@@ -1,14 +1,23 @@
 import SwiftUI
+import FeedbacksKit
 
 struct ContentView: View {
+
+    @State private var showFeedbackForm = false
+
+    let notionSubmitService = NotionSubmitService(
+        apiKey: "your-secret",
+        databaseId: "your-database-id",
+        notionVersion: "2022-06-28"
+    )
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        Button("Send feedback") {
+            showFeedbackForm = true
         }
-        .padding()
+        .sheet(isPresented: $showFeedbackForm) {
+            FeedbackForm(service: notionSubmitService)
+        }
     }
 }
 
