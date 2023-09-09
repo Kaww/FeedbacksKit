@@ -2,12 +2,25 @@ import SwiftUI
 
 public struct FeedbackForm: View {
 
+    public struct Config {
+        let title: String?
+
+        public init(title: String?) {
+            self.title = title
+        }
+    }
+
     @Environment(\.presentationMode) private var presentationMode
 
     @StateObject private var viewModel: FeedbackFormViewModel
+    private let config: Config?
 
-    public init(service: SubmitService) {
+    public init(
+        service: SubmitService,
+        config: Config? = nil
+    ) {
         self._viewModel = StateObject(wrappedValue: FeedbackFormViewModel(service: service))
+        self.config = config
     }
 
     public var body: some View {
@@ -16,8 +29,18 @@ public struct FeedbackForm: View {
                 formFields
                 submitButton
             }
-            .navigationTitle("Send a feedback")
+            .navigationTitle(Text(config?.title ?? "Send a feedback"))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Text("Cancel")
+                    }
+                }
+            }
         }
+        .navigationViewStyle(.stack)
     }
 
     // MARK: Views

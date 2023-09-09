@@ -16,7 +16,10 @@ struct ContentView: View {
             showFeedbackForm = true
         }
         .sheet(isPresented: $showFeedbackForm) {
-            FeedbackForm(service: notionSubmitService)
+            FeedbackForm(
+                service: notionSubmitService,
+                config: .init(title: "Custom title")
+            )
         }
     }
 }
