@@ -15,6 +15,7 @@ Check out the [demo project](https://github.com/Kaww/FeedbacksKit/blob/cc23c2a9c
 
 ### View
 
+Simply present the `FeedbackForm` to the user. The form is already wrapped in a `NavigationView`
 ```swift
 Button("Send feedback") {
     showFeedbackForm = true
@@ -22,6 +23,13 @@ Button("Send feedback") {
 .sheet(isPresented: $showFeedbackForm) {
     FeedbackForm(service: notionSubmitService)
 }
+```
+You can add you own title by passing a config parameter
+```swift
+    FeedbackForm(
+        service: notionSubmitService,
+        config: .init(title: "My custom title")
+    )
 ```
 
 ### Submission
