@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49C6CA0E2AACEAE900E51D16 /* FeedbacksKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = FeedbacksKit; path = ..; sourceTree = "<group>"; };
 		49D9B9CB29AD4B5B00A619C6 /* FeedbacksKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedbacksKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D9B9CE29AD4B5B00A619C6 /* FeedbacksKitDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbacksKitDemoApp.swift; sourceTree = "<group>"; };
 		49D9B9D029AD4B5B00A619C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				49D9B9DE29AD4BBE00A619C6 /* FeedbacksKit */,
+				49C6CA0E2AACEAE900E51D16 /* FeedbacksKit */,
 			);
 			name = Packages;
 			sourceTree = "<group>";

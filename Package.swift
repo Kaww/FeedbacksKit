@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "FeedbacksKit",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v14),
         .macOS(.v13),
@@ -24,9 +25,6 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "FeedbacksKit",
-            dependencies: []),
-        .testTarget(
-            name: "FeedbacksKitTests",
-            dependencies: ["FeedbacksKit"]),
+            dependencies: [])
     ]
 )

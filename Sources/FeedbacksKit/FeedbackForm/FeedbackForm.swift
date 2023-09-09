@@ -29,13 +29,13 @@ public struct FeedbackForm: View {
                 formFields
                 submitButton
             }
-            .navigationTitle(Text(config?.title ?? "Send a feedback"))
+            .navigationTitle(Text(config?.title ?? "_send_a_feedback".localized))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
-                        Text("Cancel")
+                        Text("_cancel".localized)
                     }
                 }
             }
@@ -48,17 +48,17 @@ public struct FeedbackForm: View {
     private var formFields: some View {
         Group {
             Section {
-                TextField("Email (optional)", text: $viewModel.email)
+                TextField("_email_placeholder".localized, text: $viewModel.email)
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
             } header: {
-                Text("Email")
+                Text("_email_title".localized)
             }
 
             Section {
                 TextEditor(text: $viewModel.message)
             } header: {
-                Text("Message")
+                Text("_message_title".localized)
             }
         }
         .disabled(viewModel.isFormDisabled)
@@ -74,7 +74,7 @@ public struct FeedbackForm: View {
                         .progressViewStyle(.circular)
                         .frame(maxWidth: .infinity)
                 } else {
-                    Text("Send feedback")
+                    Text("_send_feedback".localized)
                         .frame(maxWidth: .infinity)
                 }
             }
@@ -140,5 +140,6 @@ public struct FeedbackForm: View {
 struct FeedbackForm_Previews: PreviewProvider {
     static var previews: some View {
         FeedbackForm(service: DummySubmitService())
+            .environment(\.locale, Locale(identifier: "en"))
     }
 }

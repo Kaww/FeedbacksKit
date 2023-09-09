@@ -1,0 +1,11 @@
+"_send_a_feedback" = "Send a feedback";
+"_cancel" = "Cancel";
+
+"_email_placeholder" = "Email (optional)";
+"_email_title" = "Email";
+"_message_title" "Message";
+
+"_send_feedback" = "Send feedback";
+
+"_feedback_successfully_sent" = "Feedback successfully sent!";
+"_oups_error_occured" = "Ooups! An error occurred.";

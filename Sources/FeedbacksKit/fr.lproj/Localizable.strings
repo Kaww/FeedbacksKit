@@ -1,0 +1,11 @@
+"_send_a_feedback" = "Faire un retour";
+"_cancel" = "Annuler";
+
+"_email_placeholder" = "Email (optionnel)";
+"_email_title" = "Email";
+"_message_title" "Message";
+
+"_send_feedback" = "Envoyer";
+
+"_feedback_successfully_sent" = "Message envoyé !";
+"_oups_error_occured" = "Ooups! Il y a eu une erreur...";
