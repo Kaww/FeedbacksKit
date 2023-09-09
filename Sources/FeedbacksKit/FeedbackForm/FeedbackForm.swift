@@ -140,6 +140,6 @@ public struct FeedbackForm: View {
 struct FeedbackForm_Previews: PreviewProvider {
     static var previews: some View {
         FeedbackForm(service: DummySubmitService())
-            .environment(\.locale, Locale(identifier: "en"))
+            .environment(\.locale, Locale(identifier: "fr"))
     }
 }
