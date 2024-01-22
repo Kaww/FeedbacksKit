@@ -82,7 +82,7 @@ public struct FeedbackForm: View {
                         .frame(maxWidth: .infinity)
                 } else {
                     Text("_send_feedback".localized)
-						.foregroundColor(config.textForegroundColor)
+						.foregroundColor(viewModel.isSubmitDisabled ? .gray : config.textForegroundColor)
                         .frame(maxWidth: .infinity)
                 }
             }
