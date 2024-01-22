@@ -73,7 +73,76 @@ public struct NotionSubmitService: SubmitService {
                             )
                         ]
                     )
-                )
+                ),
+				.init(type: "divider", divider: .init()),
+				.init(
+					object: "block",
+					type: "paragraph",
+					paragraph: .init(
+						richText: [
+							.init(
+								type: "text",
+								text: .init(content: "_app_version_heading".localized),
+								annotations: .init(bold: true)
+							),
+							.init(
+								type: "text",
+								text: .init(content: formData.appVersion)
+							)
+						]
+					)
+				),
+				.init(
+					object: "block",
+					type: "paragraph",
+					paragraph: .init(
+						richText: [
+							.init(
+								type: "text",
+								text: .init(content: "_device_name_heading".localized),
+								annotations: .init(bold: true)
+							),
+							.init(
+								type: "text",
+								text: .init(content: formData.deviceName)
+							)
+						]
+					)
+				),
+				.init(
+					object: "block",
+					type: "paragraph",
+					paragraph: .init(
+						richText: [
+							.init(
+								type: "text",
+								text: .init(content: "_sys_name_and_version_heading".localized),
+								annotations: .init(bold: true)
+							),
+							.init(
+								type: "text",
+								text: .init(content: formData.systemNameAndVersion)
+							)
+						]
+					)
+				),
+				.init(
+					object: "block",
+					type: "paragraph",
+					paragraph: .init(
+						richText: [
+							.init(
+								type: "text",
+								text: .init(content: "_system_locale_heading".localized),
+								annotations: .init(bold: true)
+							),
+							.init(
+								type: "text",
+								text: .init(content: formData.language)
+							)
+						]
+					)
+				)
             ]
         )
     }
@@ -113,9 +182,12 @@ private struct NotionBody: Codable {
     }
 
     struct Child: Codable {
-        let object: String
+        var object: String?
         let type: String
-        let paragraph: Paragraph
+        var paragraph: Paragraph?
+		var divider: Divider?
+
+		struct Divider: Codable {}
 
         struct Paragraph: Codable {
             let richText: [RichText]
@@ -123,6 +195,15 @@ private struct NotionBody: Codable {
             struct RichText: Codable {
                 let type: String
                 let text: Text
+				struct Annotations: Codable {
+					var bold = false
+					var italic = false
+					var strikethrough = false
+					var underline = false
+					var code = false
+					var color = "default"
+				}
+				var annotations: Annotations?
 
                 struct Text: Codable {
                     let content: String
