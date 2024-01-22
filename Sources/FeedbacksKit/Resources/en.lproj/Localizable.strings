@@ -9,8 +9,3 @@
 
 "_feedback_successfully_sent" = "Feedback successfully sent!";
 "_oops_error_occurred" = "Oops! An error occurred.";
-
-"_app_version_heading" = "App version: ";
-"_device_name_heading" = "Device name: ";
-"_sys_name_and_version_heading" = "System: ";
-"_system_locale_heading" = "System Locale: ";

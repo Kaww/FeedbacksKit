@@ -9,8 +9,3 @@
 
 "_feedback_successfully_sent" = "Message envoyé !";
 "_oops_error_occurred" = "Ooups! Il y a eu une erreur...";
-
-"_app_version_heading" = "Version de l'application: ";
-"_device_name_heading" = "Nom de l'appareil: ";
-"_sys_name_and_version_heading" = "Système: ";
-"_system_locale_heading" = "Paramètres régionaux du système: ";

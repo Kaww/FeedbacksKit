@@ -82,7 +82,7 @@ public struct NotionSubmitService: SubmitService {
 						richText: [
 							.init(
 								type: "text",
-								text: .init(content: "_app_version_heading".localized),
+								text: .init(content: "App version: "),
 								annotations: .init(bold: true)
 							),
 							.init(
@@ -99,7 +99,7 @@ public struct NotionSubmitService: SubmitService {
 						richText: [
 							.init(
 								type: "text",
-								text: .init(content: "_device_name_heading".localized),
+								text: .init(content: "Device name: "),
 								annotations: .init(bold: true)
 							),
 							.init(
@@ -116,7 +116,7 @@ public struct NotionSubmitService: SubmitService {
 						richText: [
 							.init(
 								type: "text",
-								text: .init(content: "_sys_name_and_version_heading".localized),
+								text: .init(content: "System: "),
 								annotations: .init(bold: true)
 							),
 							.init(
@@ -133,7 +133,7 @@ public struct NotionSubmitService: SubmitService {
 						richText: [
 							.init(
 								type: "text",
-								text: .init(content: "_system_locale_heading".localized),
+								text: .init(content: "System Locale: "),
 								annotations: .init(bold: true)
 							),
 							.init(
