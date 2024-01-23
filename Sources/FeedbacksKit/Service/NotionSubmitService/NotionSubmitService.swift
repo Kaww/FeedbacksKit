@@ -74,75 +74,75 @@ public struct NotionSubmitService: SubmitService {
                         ]
                     )
                 ),
-				.init(type: "divider", divider: .init()),
-				.init(
-					object: "block",
-					type: "paragraph",
-					paragraph: .init(
-						richText: [
-							.init(
-								type: "text",
-								text: .init(content: "App version: "),
-								annotations: .init(bold: true)
-							),
-							.init(
-								type: "text",
-								text: .init(content: formData.appVersion)
-							)
-						]
-					)
-				),
-				.init(
-					object: "block",
-					type: "paragraph",
-					paragraph: .init(
-						richText: [
-							.init(
-								type: "text",
-								text: .init(content: "Device name: "),
-								annotations: .init(bold: true)
-							),
-							.init(
-								type: "text",
-								text: .init(content: formData.deviceName)
-							)
-						]
-					)
-				),
-				.init(
-					object: "block",
-					type: "paragraph",
-					paragraph: .init(
-						richText: [
-							.init(
-								type: "text",
-								text: .init(content: "System: "),
-								annotations: .init(bold: true)
-							),
-							.init(
-								type: "text",
-								text: .init(content: formData.systemNameAndVersion)
-							)
-						]
-					)
-				),
-				.init(
-					object: "block",
-					type: "paragraph",
-					paragraph: .init(
-						richText: [
-							.init(
-								type: "text",
-								text: .init(content: "System Locale: "),
-								annotations: .init(bold: true)
-							),
-							.init(
-								type: "text",
-								text: .init(content: formData.language)
-							)
-						]
-					)
-				)
+                .init(type: "divider", divider: .init()),
+                .init(
+                    object: "block",
+                    type: "paragraph",
+                    paragraph: .init(
+                        richText: [
+                            .init(
+                                type: "text",
+                                text: .init(content: "App version: "),
+                                annotations: .init(bold: true)
+                            ),
+                            .init(
+                                type: "text",
+                                text: .init(content: formData.appVersion)
+                            )
+                        ]
+                    )
+                ),
+                .init(
+                    object: "block",
+                    type: "paragraph",
+                    paragraph: .init(
+                        richText: [
+                            .init(
+                                type: "text",
+                                text: .init(content: "Device model identifier: "),
+                                annotations: .init(bold: true)
+                            ),
+                            .init(
+                                type: "text",
+                                text: .init(content: formData.deviceModelIdentifier)
+                            )
+                        ]
+                    )
+                ),
+                .init(
+                    object: "block",
+                    type: "paragraph",
+                    paragraph: .init(
+                        richText: [
+                            .init(
+                                type: "text",
+                                text: .init(content: "System: "),
+                                annotations: .init(bold: true)
+                            ),
+                            .init(
+                                type: "text",
+                                text: .init(content: formData.systemNameAndVersion)
+                            )
+                        ]
+                    )
+                ),
+                .init(
+                    object: "block",
+                    type: "paragraph",
+                    paragraph: .init(
+                        richText: [
+                            .init(
+                                type: "text",
+                                text: .init(content: "System Locale: "),
+                                annotations: .init(bold: true)
+                            ),
+                            .init(
+                                type: "text",
+                                text: .init(content: formData.language)
+                            )
+                        ]
+                    )
+                )
             ]
         )
     }
@@ -185,9 +185,9 @@ private struct NotionBody: Codable {
         var object: String?
         let type: String
         var paragraph: Paragraph?
-		var divider: Divider?
-
-		struct Divider: Codable {}
+        var divider: Divider?
+        
+        struct Divider: Codable {}
 
         struct Paragraph: Codable {
             let richText: [RichText]
@@ -195,15 +195,15 @@ private struct NotionBody: Codable {
             struct RichText: Codable {
                 let type: String
                 let text: Text
-				struct Annotations: Codable {
-					var bold = false
-					var italic = false
-					var strikethrough = false
-					var underline = false
-					var code = false
-					var color = "default"
-				}
-				var annotations: Annotations?
+                struct Annotations: Codable {
+                    var bold = false
+                    var italic = false
+                    var strikethrough = false
+                    var underline = false
+                    var code = false
+                    var color = "default"
+                }
+                var annotations: Annotations?
 
                 struct Text: Codable {
                     let content: String

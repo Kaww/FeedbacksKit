@@ -4,14 +4,14 @@ public struct FeedbackForm: View {
 
     public struct Config {
         let title: String
-		let textForegroundColor: Color
+        let textForegroundColor: Color
 
         public init(
-			title: String? = nil,
-			textForegroundColor: Color? = nil
-		) {
-			self.title = title ?? "_send_a_feedback".localized
-			self.textForegroundColor = textForegroundColor ?? .blue
+            title: String? = nil,
+            textForegroundColor: Color? = nil
+        ) {
+            self.title = title ?? "_send_a_feedback".localized
+            self.textForegroundColor = textForegroundColor ?? .blue
         }
     }
 
@@ -40,8 +40,8 @@ public struct FeedbackForm: View {
                     Button {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
-						Text("_cancel".localized)
-							.foregroundColor(config.textForegroundColor)
+                        Text("_cancel".localized)
+                            .foregroundColor(config.textForegroundColor)
                     }
                 }
             }
@@ -57,7 +57,7 @@ public struct FeedbackForm: View {
                 TextField("_email_placeholder".localized, text: $viewModel.email)
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
-					.autocorrectionDisabled()
+                    .autocorrectionDisabled()
             } header: {
                 Text("_email_title".localized)
             }
@@ -82,7 +82,7 @@ public struct FeedbackForm: View {
                         .frame(maxWidth: .infinity)
                 } else {
                     Text("_send_feedback".localized)
-						.foregroundColor(viewModel.isSubmitDisabled ? .gray : config.textForegroundColor)
+                        .foregroundColor(viewModel.isSubmitDisabled ? .gray : config.textForegroundColor)
                         .frame(maxWidth: .infinity)
                 }
             }
