@@ -47,6 +47,7 @@ public struct FeedbackForm: View {
             }
         }
         .navigationViewStyle(.stack)
+        .accessibilityIdentifier("LeaveFeedbackScreen")
     }
 
     // MARK: Views
@@ -58,12 +59,14 @@ public struct FeedbackForm: View {
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
                     .autocorrectionDisabled()
+                    .accessibilityIdentifier("EmailTextField")
             } header: {
                 Text("_email_title".localized)
             }
 
             Section {
                 TextEditor(text: $viewModel.message)
+                    .accessibilityIdentifier("MessageTextEditor")
             } header: {
                 Text("_message_title".localized)
             }
@@ -86,6 +89,7 @@ public struct FeedbackForm: View {
                         .frame(maxWidth: .infinity)
                 }
             }
+            .accessibilityIdentifier("SendFeedbackButton")
             .disabled(viewModel.isSubmitDisabled)
         } footer: {
             footer
@@ -112,6 +116,7 @@ public struct FeedbackForm: View {
             .bold()
             .frame(maxWidth: .infinity)
             .foregroundColor(.green)
+            .accessibilityIdentifier("SendFeedbackSuccessText")
             .onAppear {
                 Task {
                     try? await Task.sleep(nanoseconds: 2_000_000_000)
@@ -128,6 +133,7 @@ public struct FeedbackForm: View {
             .bold()
             .frame(maxWidth: .infinity)
             .foregroundColor(.red)
+            .accessibilityIdentifier("SendFeedbackFailureText")
             .onAppear {
                 Task {
                     try? await Task.sleep(nanoseconds: 3_000_000_000)
