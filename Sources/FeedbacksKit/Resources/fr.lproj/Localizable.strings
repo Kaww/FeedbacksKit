@@ -8,4 +8,4 @@
 "_send_feedback" = "Envoyer";
 
 "_feedback_successfully_sent" = "Message envoyé !";
-"_oups_error_occured" = "Ooups! Il y a eu une erreur...";
+"_oops_error_occurred" = "Ooups! Il y a eu une erreur...";

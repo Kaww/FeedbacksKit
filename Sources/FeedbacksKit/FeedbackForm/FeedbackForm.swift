@@ -3,24 +3,29 @@ import SwiftUI
 public struct FeedbackForm: View {
 
     public struct Config {
-        let title: String?
+        let title: String
+        let textForegroundColor: Color
 
-        public init(title: String?) {
-            self.title = title
+        public init(
+            title: String? = nil,
+            textForegroundColor: Color? = nil
+        ) {
+            self.title = title ?? "_send_a_feedback".localized
+            self.textForegroundColor = textForegroundColor ?? .blue
         }
     }
 
     @Environment(\.presentationMode) private var presentationMode
 
     @StateObject private var viewModel: FeedbackFormViewModel
-    private let config: Config?
+    private let config: Config
 
     public init(
         service: SubmitService,
         config: Config? = nil
     ) {
         self._viewModel = StateObject(wrappedValue: FeedbackFormViewModel(service: service))
-        self.config = config
+        self.config = config ?? Config()
     }
 
     public var body: some View {
@@ -29,18 +34,20 @@ public struct FeedbackForm: View {
                 formFields
                 submitButton
             }
-            .navigationTitle(Text(config?.title ?? "_send_a_feedback".localized))
+            .navigationTitle(Text(config.title))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("_cancel".localized)
+                            .foregroundColor(config.textForegroundColor)
                     }
                 }
             }
         }
         .navigationViewStyle(.stack)
+        .accessibilityIdentifier("LeaveFeedbackScreen")
     }
 
     // MARK: Views
@@ -51,12 +58,15 @@ public struct FeedbackForm: View {
                 TextField("_email_placeholder".localized, text: $viewModel.email)
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
+                    .autocorrectionDisabled()
+                    .accessibilityIdentifier("EmailTextField")
             } header: {
                 Text("_email_title".localized)
             }
 
             Section {
                 TextEditor(text: $viewModel.message)
+                    .accessibilityIdentifier("MessageTextEditor")
             } header: {
                 Text("_message_title".localized)
             }
@@ -75,9 +85,11 @@ public struct FeedbackForm: View {
                         .frame(maxWidth: .infinity)
                 } else {
                     Text("_send_feedback".localized)
+                        .foregroundColor(viewModel.isSubmitDisabled ? .gray : config.textForegroundColor)
                         .frame(maxWidth: .infinity)
                 }
             }
+            .accessibilityIdentifier("SendFeedbackButton")
             .disabled(viewModel.isSubmitDisabled)
         } footer: {
             footer
@@ -104,6 +116,7 @@ public struct FeedbackForm: View {
             .bold()
             .frame(maxWidth: .infinity)
             .foregroundColor(.green)
+            .accessibilityIdentifier("SendFeedbackSuccessText")
             .onAppear {
                 Task {
                     try? await Task.sleep(nanoseconds: 2_000_000_000)
@@ -120,6 +133,7 @@ public struct FeedbackForm: View {
             .bold()
             .frame(maxWidth: .infinity)
             .foregroundColor(.red)
+            .accessibilityIdentifier("SendFeedbackFailureText")
             .onAppear {
                 Task {
                     try? await Task.sleep(nanoseconds: 3_000_000_000)

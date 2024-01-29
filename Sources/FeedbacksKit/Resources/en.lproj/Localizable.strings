@@ -8,4 +8,4 @@
 "_send_feedback" = "Send feedback";
 
 "_feedback_successfully_sent" = "Feedback successfully sent!";
-"_oups_error_occured" = "Ooups! An error occurred.";
+"_oops_error_occurred" = "Oops! An error occurred.";

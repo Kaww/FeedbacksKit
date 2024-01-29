@@ -11,7 +11,7 @@ class FeedbackFormViewModel: ObservableObject {
         var message: String {
             switch self {
             case .success: return "_feedback_successfully_sent".localized
-            case .failure: return "_oups_error_occured".localized
+            case .failure: return "_oops_error_occurred".localized
             }
         }
     }
